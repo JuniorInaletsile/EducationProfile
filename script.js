@@ -1,30 +1,88 @@
-const menuIcon = document.querySelector(".menu-icon");
-const navbar = document.querySelector(".navbar");
+/* =========================
+   MOBILE MENU
+========================= */
 
-menuIcon.addEventListener("click", () => {
-    navbar.classList.toggle("active");
+const menuIcon = document.querySelector('.menu-icon i');
 
-    const icon = menuIcon.querySelector("i");
+const navbar = document.querySelector('.navbar');
 
-    if (navbar.classList.contains("active")) {
-        icon.classList.replace("bx-menu", "bx-x");
-    } else {
-        icon.classList.replace("bx-x", "bx-menu");
-    }
+const navLinks = document.querySelectorAll('.navbar a');
+
+
+menuIcon.addEventListener('click', () => {
+
+    navbar.classList.toggle('active');
+
+    menuIcon.classList.toggle('bx-menu');
+
+    menuIcon.classList.toggle('bx-x');
+
 });
 
 
-/* Close menu when a link is clicked */
+/* =========================
+   CLOSE MOBILE MENU
+   WHEN LINK IS CLICKED
+========================= */
 
-document.querySelectorAll(".navbar a").forEach(link => {
+navLinks.forEach(link => {
 
-    link.addEventListener("click", () => {
+    link.addEventListener('click', () => {
 
-        navbar.classList.remove("active");
+        navbar.classList.remove('active');
 
-        const icon = menuIcon.querySelector("i");
+        menuIcon.classList.add('bx-menu');
 
-        icon.classList.replace("bx-x", "bx-menu");
+        menuIcon.classList.remove('bx-x');
+
+    });
+
+});
+
+
+/* =========================
+   ACTIVE NAVIGATION
+   WHILE SCROLLING
+========================= */
+
+const sections = document.querySelectorAll('section[id]');
+
+
+window.addEventListener('scroll', () => {
+
+    const scrollY = window.scrollY;
+
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        const sectionBottom =
+            sectionTop + section.offsetHeight;
+
+        const id = section.getAttribute('id');
+
+        const link =
+            document.querySelector(
+                `.navbar a[href="#${id}"]`
+            );
+
+
+        if (
+            link &&
+            scrollY >= sectionTop &&
+            scrollY < sectionBottom
+        ) {
+
+            navLinks.forEach(item => {
+
+                item.classList.remove('active');
+
+            });
+
+            link.classList.add('active');
+
+        }
 
     });
 
