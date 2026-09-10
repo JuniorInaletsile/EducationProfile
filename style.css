@@ -1688,3 +1688,85 @@ a.contact-item:hover {
         text-align: center;
     }
 }
+
+/* =========================
+   MOBILE OVERFLOW FIX
+========================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make all sections fit the screen */
+section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mobile layout */
+@media (max-width: 800px) {
+
+    .projects-container,
+    .contact-container {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .project-card,
+    .contact-form,
+    .contact-info {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .project-content,
+    .contact-info,
+    .contact-form {
+        min-width: 0;
+    }
+
+    .project-tags {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .contact-item {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-item strong {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+}
