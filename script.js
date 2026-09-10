@@ -85,5 +85,22 @@ window.addEventListener('scroll', () => {
         }
 
     });
+   @media (max-width: 800px) {
+
+    .projects-container,
+    .contact-container {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+                        @media (max-width: 560px) {
+
+    .projects-container {
+
+        grid-template-columns: 1fr;
+    }
+
+}
 
 });
